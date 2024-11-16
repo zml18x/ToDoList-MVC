@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AppMVC.WebApp.Models.ToDo.ToDoItemViewModel>
+
+@{
+    ViewData["Title"] = "Lista ToDo";
+}
+
+<div class="container">
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <div class="create-todo">
+            <button type="submit" class="create-button">+</button>
+            <input type="text" name="Content" class="textarea-create" placeholder="Nowe zadanie" required>
+        </div>
+    </form>
+    
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <form asp-action="@(item.IsCompleted ? "MarkAsIncomplete" : "MarkAsCompleted")" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id"/>
+                    <button type="submit" class="status-button @(item.IsCompleted ? "completed" : "not-completed")"></button>
+                </form>
+
+                <form asp-action="Update" method="post" class="form-update">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="Id" value="@item.Id"/>
+                    <textarea name="Content" class="textarea-li" onblur="this.form.submit();" @(item.IsCompleted ? "readonly" : "")>@item.Content</textarea>
+                </form>
+                
+                <form asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id"/>
+                    <button type="submit" class="delete-button">&#x2716;</button>
+                </form>
+            </li>
+        }
+    </ul>
+</div>
+

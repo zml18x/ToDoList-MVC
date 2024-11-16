@@ -1,0 +1,98 @@
+﻿body {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: "Fira Code Light", monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.auth-content {
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.auth-title {
+    font-size: 2.5rem;
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+.auth-description {
+    font-size: 1.2rem;
+    color: #BDBDBD;
+    margin-bottom: 20px;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.auth-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.auth-btn-primary {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+}
+
+.auth-btn-secondary {
+    background-color: #333;
+    color: #ff4081;
+    border: 2px solid #ff4081;
+}
+
+.auth-btn-primary:hover {
+    background-color: #d73766;
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.auth-btn-secondary:hover {
+    background-color: #444;
+    transform: scale(1.05);
+    color: #ff4081;
+}
+
+@media screen and (max-width: 600px) {
+    .auth-title {
+        font-size: 2rem;
+    }
+
+    .auth-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

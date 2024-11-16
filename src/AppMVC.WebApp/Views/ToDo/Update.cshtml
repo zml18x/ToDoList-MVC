@@ -1,0 +1,21 @@
+@model AppMVC.WebApp.Models.ToDo.UpdateToDoViewModel
+
+@{
+    ViewBag.Title = "Edit Todo Item";
+}
+
+<h2>Edit Todo Item</h2>
+
+<form asp-action="Update" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Content, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
